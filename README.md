@@ -1,13 +1,13 @@
 
-# 🚀 `stackforge`
+# ⚡ StackForge
 
-**One-Click DevOps Templates for African Devs.**
+**One-Click DevOps Templates for Devs.**
 
-StackForge is a developer-first CLI tool that generates and deploys smart pipelines for your apps — Laravel, Django, React, Flutter, and more — using simple commands and low-cost or free-tier infrastructure.
+StackForge helps solo devs, student teams, and scrappy startups deploy full-stack apps with zero DevOps headaches.
 
 ---
 
-## ✨ Why `stackforge`?
+## ✨ Why StackForge?
 
 DevOps shouldn't be expensive or confusing for indie developers, students, or small teams — especially across Africa. StackForge bridges that gap with:
 
@@ -17,6 +17,15 @@ DevOps shouldn't be expensive or confusing for indie developers, students, or sm
 - 🔧 Plug-and-play templates for common stacks
 
 ---
+
+## 🚀 What It Does
+- Generates ready-to-use deployment pipelines for:
+  - Laravel, Django, React, Flutter, etc.
+- Supports:
+  - Local VPS (e.g. Contabo)
+  - Free-tier cloud (e.g. Railway, Render)
+- Optional:
+  - USSD deployment triggers for fun or edge cases
 
 ## 📦 Features
 
@@ -39,41 +48,86 @@ DevOps shouldn't be expensive or confusing for indie developers, students, or sm
 Make sure you have Python 3.10+ and [Poetry](https://python-poetry.org/) installed.
 
 ```bash
-git clone https://github.com/mrdegbe/stackforge
+# Clone and enter the repo
+git clone https://github.com/mrdegbe/stackforge.git
 cd stackforge
+
+# Install dependencies with Poetry
 poetry install
+
+# Run CLI
+poetry run python -m cli.main
 ````
 
 ---
 
-## 🚀 Usage
+## 🧪 Example Usage
+
+### ✅ Generate Pipeline with Framework + Target
 
 ```bash
-poetry run python -m cli.main init pipeline
+poetry run python -m cli.main init pipeline --framework laravel --target railway
 ```
 
-You’ll be prompted to choose a framework and deployment target. StackForge will generate the pipeline and configure the files for you.
-
-More commands coming soon:
+### ✅ Or Use Template Name Directly
 
 ```bash
-stackforge deploy
-stackforge debug
-stackforge template list
+poetry run python -m cli.main init pipeline --template laravel-railway
+```
+---
+
+## 📦 CLI Commands
+
+#### `init pipeline`
+
+Generates a pipeline file based on the selected stack.
+
+Options:
+
+* `--framework` – e.g. `django`, `laravel`
+* `--target` – e.g. `render`, `railway`
+* `--template` – (alternative) full template name like `django-render`
+
+Examples:
+
+```bash
+# With separate options
+stackforge init pipeline --framework django --target render
+
+# Or using a single template name
+stackforge init pipeline --template laravel-railway
 ```
 
 ---
 
-## 📅 Roadmap
+#### `list templates`
 
-| Feature                    | Status     |
-| -------------------------- | ---------- |
-| Init pipeline templates    | ✅ Done     |
-| Deploy to Contabo VPS      | 🔜 Planned |
-| Deploy to Railway/Render   | 🔜 Planned |
-| Custom USSD triggers       | 🔜 Planned |
-| Pipeline debugging support | 🔜 Planned |
-| Template marketplace       | 🔜 Planned |
+Lists all available templates:
+
+```bash
+stackforge list templates
+```
+
+Example output:
+
+```
+Available templates:
+• laravel-railway
+• django-render
+• react-railway
+• flutter-render
+```
+---
+## 🔜 Roadmap
+
+* [x] Init CLI with Typer
+* [x] Support `--framework` + `--target` or `--template`
+* [x] `list templates` command
+* [ ] USSD deploy trigger (experimental)
+* [ ] Backend API to serve cloud templates
+* [ ] Web dashboard for preview & customization
+* [ ] `stackforge deploy` (auto-deploy via GitHub Actions)
+
 
 ---
 
@@ -97,9 +151,9 @@ poetry run black src/
 
 ---
 
-## 👨🏾‍💻 Created for African Devs
+## 👨🏾‍💻 Created for Devs
 
-StackForge is proudly built to make DevOps accessible for local developers, campus coders, and small startups across the continent.
+StackForge is proudly built to make DevOps accessible for local developers, campus coders, and small startups.
 
 > Built with 💡 in Africa.
 
