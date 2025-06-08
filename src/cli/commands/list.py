@@ -3,6 +3,7 @@ from pathlib import Path
 
 app = typer.Typer()
 
+
 @app.command()
 def templates():
     templates_path = Path(__file__).parent.parent / "templates"
