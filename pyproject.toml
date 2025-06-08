@@ -1,0 +1,8 @@
+[tool.poetry]
+name = "stackforge"
+version = "0.1.0"
+description = ""
+authors = ["Raymond Degbe mrdegbe14@gmail.com"]
+packages = [
+    { include = "cli", from = "src" }
+]
